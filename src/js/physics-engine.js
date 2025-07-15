@@ -280,7 +280,11 @@ export class PhysicsEngine {
     }
 
     getRunnerState() {
-        return { ...this.runnerState };
+        return { 
+            ...this.runnerState,
+            world: this.world,
+            bodyParts: this.runnerParts
+        };
     }
 
     getAllBodyParts() {

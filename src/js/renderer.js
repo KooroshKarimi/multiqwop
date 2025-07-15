@@ -175,8 +175,11 @@ export class Renderer {
         const world = runnerState.world;
         const bodyParts = runnerState.bodyParts;
         
+        console.log('Drawing runner:', { world: !!world, bodyParts: !!bodyParts, position: runnerState.position });
+        
         if (!world || !bodyParts) {
             // Draw mock runner if physics data not available
+            console.log('Using mock runner');
             this.drawMockRunner(runnerState);
             return;
         }
@@ -194,7 +197,7 @@ export class Renderer {
     drawMockRunner(runnerState) {
         // Draw a simple mock runner when physics data is not available
         const x = runnerState.position.x * this.scale;
-        const y = this.canvas.height - 100 - runnerState.position.y * this.scale;
+        const y = this.canvas.height - 150 - runnerState.position.y * this.scale;
         
         // Head
         this.ctx.fillStyle = this.colors.runner.head;
@@ -224,7 +227,7 @@ export class Renderer {
 
     drawBodyPart(partName, position, angle) {
         const x = position.x * this.scale;
-        const y = this.canvas.height - position.y * this.scale;
+        const y = this.canvas.height - 50 - position.y * this.scale;
         
         this.ctx.save();
         this.ctx.translate(x, y);
