@@ -52,6 +52,9 @@ export class Renderer {
         // Clear canvas
         this.clear();
         
+        // Debug log
+        console.log('Rendering frame:', runnerState);
+        
         // Update camera position to follow runner
         this.updateCamera(runnerState);
         

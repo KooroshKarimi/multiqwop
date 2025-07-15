@@ -47,6 +47,12 @@ class QWOPGame {
             this.hideLoadingScreen();
             this.screenManager.showScreen('start-screen');
             
+            // Auto-start the game for testing
+            setTimeout(() => {
+                console.log('Auto-starting game for testing...');
+                this.gameManager.startGame();
+            }, 1000);
+            
             this.isInitialized = true;
             console.log('QWOP Game initialized successfully!');
             
