@@ -2,6 +2,7 @@ import { GameManager } from './game-manager.js';
 import { ScreenManager } from './screen-manager.js';
 import { FirebaseService } from './firebase-service.js';
 import { InputManager } from './input-manager.js';
+import { PhysicsTest } from './physics-test.js';
 
 class QWOPGame {
     constructor() {

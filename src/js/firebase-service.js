@@ -1,11 +1,10 @@
+import { firebaseConfig } from './firebase-config.js';
+
 export class FirebaseService {
     constructor() {
         this.db = null;
         this.isInitialized = false;
-        this.config = {
-            // Firebase configuration will be set here
-            // For now, we'll use a mock implementation
-        };
+        this.config = firebaseConfig;
     }
 
     async init() {
