@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QWOP Multiplayer</title>
+    <meta name="description" content="QWOP Multiplayer - Das klassische Laufspiel mit globaler Highscore-Liste">
+    <link rel="stylesheet" href="src/css/main.css">
+    <link rel="icon" type="image/x-icon" href="src/assets/favicon.ico">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <div class="logo">
+                <h1>QWOP</h1>
+                <p class="subtitle">Multiplayer Edition</p>
+            </div>
+            <div class="controls-info">
+                <p>Tippe auf die Ecken: Q/W steuern Oberschenkel, O/P steuern Waden</p>
+            </div>
+            <div class="button-group">
+                <button id="start-game-btn" class="btn btn-primary">Spiel starten</button>
+                <button id="show-highscores-btn" class="btn btn-secondary">Highscores</button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-header">
+                <div class="distance-display">
+                    <span id="distance">0.0m</span>
+                </div>
+                <button id="reset-btn" class="btn btn-small">Reset</button>
+            </div>
+            
+            <canvas id="game-canvas" width="800" height="400"></canvas>
+            
+            <div class="control-buttons">
+                <button id="q-btn" class="control-btn q-btn" data-key="q">Q</button>
+                <button id="w-btn" class="control-btn w-btn" data-key="w">W</button>
+                <button id="o-btn" class="control-btn o-btn" data-key="o">O</button>
+                <button id="p-btn" class="control-btn p-btn" data-key="p">P</button>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="screen">
+            <div class="game-over-content">
+                <h2>Spiel beendet!</h2>
+                <div class="final-distance">
+                    <span id="final-distance">0.0m</span>
+                </div>
+                <div class="result-message" id="result-message">
+                    <!-- Will be filled by JavaScript -->
+                </div>
+                
+                <div class="score-form" id="score-form">
+                    <h3>Score eintragen</h3>
+                    <div class="form-group">
+                        <label for="player-name">Name:</label>
+                        <input type="text" id="player-name" placeholder="Dein Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="player-email">E-Mail:</label>
+                        <input type="email" id="player-email" placeholder="deine@email.com" required>
+                    </div>
+                    <button id="submit-score-btn" class="btn btn-primary">Score eintragen</button>
+                </div>
+                
+                <div class="button-group">
+                    <button id="play-again-btn" class="btn btn-primary">Nochmal spielen</button>
+                    <button id="view-highscores-btn" class="btn btn-secondary">Highscores anzeigen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highscores Screen -->
+        <div id="highscores-screen" class="screen">
+            <div class="highscores-content">
+                <h2>Globale Highscores</h2>
+                <div class="highscores-list" id="highscores-list">
+                    <!-- Will be filled by JavaScript -->
+                </div>
+                <div class="button-group">
+                    <button id="back-to-menu-btn" class="btn btn-primary">Zurück zum Menü</button>
+                    <button id="play-from-highscores-btn" class="btn btn-secondary">Spielen</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loading-screen" class="screen">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <p>Lade QWOP...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Game Scripts -->
+    <script src="dist/bundle.js"></script>
+</body>
+</html>
