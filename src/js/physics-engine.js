@@ -1,4 +1,4 @@
-import * as planck from 'planck';
+import * as planck from 'planck-js';
 
 export class PhysicsEngine {
     constructor() {
