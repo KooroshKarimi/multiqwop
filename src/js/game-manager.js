@@ -56,6 +56,9 @@ export class GameManager {
     startGame() {
         try {
             console.log('Starting new game...');
+            console.log('GameManager state:', this.gameState);
+            console.log('PhysicsEngine available:', !!this.physicsEngine);
+            console.log('Renderer available:', !!this.renderer);
             
             // Reset game state
             this.gameState.isRunning = true;
@@ -118,6 +121,7 @@ export class GameManager {
     }
 
     startGameLoop() {
+        console.log('Starting game loop...');
         const gameLoop = (currentTime) => {
             if (!this.gameState.isRunning) {
                 return;

@@ -50,8 +50,13 @@ class QWOPGame {
             // Auto-start the game for testing
             setTimeout(() => {
                 console.log('Auto-starting game for testing...');
-                this.gameManager.startGame();
-            }, 1000);
+                try {
+                    this.gameManager.startGame();
+                    console.log('Auto-start completed successfully');
+                } catch (error) {
+                    console.error('Auto-start failed:', error);
+                }
+            }, 2000);
             
             this.isInitialized = true;
             console.log('QWOP Game initialized successfully!');
